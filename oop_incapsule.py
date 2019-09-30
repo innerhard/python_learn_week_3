@@ -35,6 +35,10 @@ class Phone(Product):
     def get_color(self):
         return f"Цвет корпуса: {self.color}"
 
+    def get_memory_size(self):
+        # Выводим размер памяти в гигабайтах
+        pass
+
     def __repr__(self):
          return f"<Product name: {self.name}, price: {self.price}, stock: {self.stock}"
 
