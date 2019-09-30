@@ -20,6 +20,9 @@ class Product:
             raise ValueError("Недостаточно товара на складе")
         # Здесь мы можем как-то взаимодействовать с учётной/бухгалтерской системой
 
+    def get_color(self):
+        raise NotImplementedError
+
     def __repr__(self):
         return f"<Product name: {self.name}, price: {self.price}, stock: {self.stock}"
 
@@ -29,6 +32,9 @@ class Phone(Product):
         super().__init__(name, price, stock, discount, max_discount)
         self.color = color
 
+    def get_color(self):
+        return f"Цвет корпуса: {self.color}"
+
     def __repr__(self):
          return f"<Product name: {self.name}, price: {self.price}, stock: {self.stock}"
 
@@ -37,14 +43,13 @@ class Sofa(Product):
         super().__init__(name, price, stock, discount, max_discount)
         self.color = color
         self.texture = texture
+    def get_color(self):
+        return f"Цвет обивки: {self.color}, тип ткани: {self.texture}"
     def __repr__(self):
          return f"<Product name: {self.name}, price: {self.price}, stock: {self.stock}"
 
 my_phone = Phone('iPhone', 60000, 'Черный')
-print(my_phone)
-print(my_phone.color)
 
+print(my_phone.get_color())
 sofa1 = Sofa('Большой диван', 25312.4,'Желтый','Велюр')
-print(sofa1)
-print(sofa1.color)
-print(sofa1.texture)
+print(sofa1.get_color())
